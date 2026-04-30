@@ -1,0 +1,73 @@
+<% content_for :title, "Review ##{@review.id} | EventHub" %>
+
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="mb-4">
+      <%= link_to reviews_path, class: "btn btn-outline-primary btn-sm" do %>
+        <i class="bi bi-arrow-left me-1"></i>
+        Back to Reviews
+      <% end %>
+    </div>
+
+    <div class="card border-0 shadow-sm rounded-4">
+      <div class="card-body p-4 p-lg-5">
+        <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-4">
+          <div>
+            <span class="badge text-bg-warning mb-3">
+              <i class="bi bi-star-fill me-1"></i>
+              <%= @review.rating %>/5
+            </span>
+            <h1 class="fw-bold mb-2">Review #<%= @review.id %></h1>
+            <p class="text-muted mb-0">
+              Review for
+              <%= link_to @review.event.title, event_path(@review.event), class: "fw-semibold text-decoration-none" %>
+            </p>
+          </div>
+        </div>
+
+        <div class="row g-4 mb-4">
+          <div class="col-md-6">
+            <div class="p-3 bg-light rounded-3 h-100">
+              <p class="text-muted small mb-1">Reviewer</p>
+              <p class="fw-semibold mb-0">
+                <%= link_to @review.user.full_name, user_path(@review.user), class: "text-decoration-none" %>
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="p-3 bg-light rounded-3 h-100">
+              <p class="text-muted small mb-1">Event category</p>
+              <p class="fw-semibold mb-0">
+                <%= link_to @review.event.category.name, category_path(@review.event.category), class: "text-decoration-none" %>
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="p-3 bg-light rounded-3 h-100">
+              <p class="text-muted small mb-1">Venue</p>
+              <p class="fw-semibold mb-0">
+                <%= link_to @review.event.venue.name, venue_path(@review.event.venue), class: "text-decoration-none" %>
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="p-3 bg-light rounded-3 h-100">
+              <p class="text-muted small mb-1">Created at</p>
+              <p class="fw-semibold mb-0">
+                <%= @review.created_at.strftime("%B %d, %Y at %H:%M") %>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-4 bg-light rounded-4">
+          <h2 class="h5 fw-bold mb-3">Comment</h2>
+          <p class="text-muted mb-0"><%= @review.comment %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

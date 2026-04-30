@@ -1,0 +1,84 @@
+<% content_for :title, "Events | EventHub" %>
+
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-3 mb-4">
+      <div>
+        <h1 class="fw-bold mb-1">Events</h1>
+        <p class="text-muted mb-0">
+          Browse all sample events currently available in EventHub.
+        </p>
+      </div>
+
+      <%= link_to root_path, class: "btn btn-outline-primary" do %>
+        <i class="bi bi-house me-1"></i>
+        Back to Home
+      <% end %>
+    </div>
+
+    <div class="row g-4">
+      <% @events.each do |event| %>
+        <div class="col-md-6 col-xl-4">
+          <div class="card h-100 border-0 shadow-sm rounded-4">
+            <div class="card-body p-4 d-flex flex-column">
+              <div class="d-flex justify-content-between align-items-start gap-2 mb-3">
+                <span class="badge text-bg-primary">
+                  <%= event.category.name %>
+                </span>
+
+                <span class="badge text-bg-secondary text-capitalize">
+                  <%= event.status %>
+                </span>
+              </div>
+
+              <h2 class="h5 fw-bold mb-2">
+                <%= link_to event.title, event_path(event), class: "text-decoration-none text-dark" %>
+              </h2>
+
+              <p class="text-muted small mb-3">
+                Organized by <strong><%= event.organizer.full_name %></strong>
+              </p>
+
+              <div class="small text-muted mb-3">
+                <p class="mb-2">
+                  <i class="bi bi-calendar-event me-2 text-primary"></i>
+                  <%= event.starts_at.strftime("%B %d, %Y at %H:%M") %>
+                </p>
+
+                <p class="mb-2">
+                  <i class="bi bi-geo-alt me-2 text-primary"></i>
+                  <%= event.venue.name %>
+                </p>
+
+                <p class="mb-0">
+                  <i class="bi bi-people me-2 text-primary"></i>
+                  <%= event.confirmed_attendees_count %> confirmed /
+                  <%= event.max_attendees %> max
+                </p>
+              </div>
+
+              <div class="mt-auto d-flex justify-content-between align-items-center">
+                <% if event.average_rating.present? %>
+                  <span class="small text-muted">
+                    <i class="bi bi-star-fill text-warning me-1"></i>
+                    <%= event.average_rating %> average rating
+                  </span>
+                <% else %>
+                  <span class="small text-muted">No reviews yet</span>
+                <% end %>
+
+                <%= link_to "View details", event_path(event), class: "btn btn-sm btn-primary" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <% if @events.empty? %>
+      <div class="alert alert-info mt-4 mb-0">
+        No events have been created yet.
+      </div>
+    <% end %>
+  </div>
+</section>

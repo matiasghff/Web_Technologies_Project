@@ -1,0 +1,47 @@
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons';
+
+body {
+  background-color: #f8f9fa;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.hero-section {
+  min-height: 85vh;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9f2ff 100%);
+  padding: 5rem 0;
+}
+
+.hero-card {
+  background-color: #ffffff;
+}
+
+.feature-box {
+  transition: transform 0.2s ease;
+}
+
+.feature-box:hover {
+  transform: translateY(-2px);
+}
+
+.category-pill {
+  font-weight: 600;
+}
+
+.footer-muted {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+@media (max-width: 991.98px) {
+  .hero-section {
+    min-height: auto;
+    padding: 4rem 0;
+  }
+
+  .navbar .btn {
+    width: 100%;
+  }
+}

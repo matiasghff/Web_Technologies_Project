@@ -1,0 +1,236 @@
+<% content_for :title, "EventHub" %>
+
+<!-- Hero -->
+<section class="hero-section d-flex align-items-center text-center text-lg-start">
+  <div class="container">
+    <div class="row align-items-center gy-4">
+      <div class="col-lg-6">
+        <span class="badge bg-warning text-dark mb-3">University Community Events</span>
+
+        <h1 class="display-4 fw-bold mb-3">
+          Discover, create, and join events with EventHub
+        </h1>
+
+        <p class="lead mb-4">
+          EventHub is a platform for students, professors, and university staff to explore talks,
+          workshops, sports activities, study groups, and social gatherings in one place.
+        </p>
+
+        <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start">
+          <%= link_to "Browse Events", events_path, class: "btn btn-primary btn-lg" %>
+          <a href="#about" class="btn btn-outline-secondary btn-lg">Learn More</a>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="card border-0 shadow-lg rounded-4 hero-card">
+          <div class="card-body p-4">
+            <h3 class="fw-bold mb-3">Why EventHub?</h3>
+
+            <div class="row g-3">
+              <div class="col-12">
+                <div class="feature-box p-3 rounded-3 bg-light">
+                  <h5 class="mb-1">
+                    <i class="bi bi-search me-2 text-primary"></i>
+                    Easy event discovery
+                  </h5>
+                  <p class="mb-0 text-muted">
+                    Find activities by category, venue, and availability.
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="feature-box p-3 rounded-3 bg-light">
+                  <h5 class="mb-1">
+                    <i class="bi bi-ticket-perforated me-2 text-primary"></i>
+                    Simple registration
+                  </h5>
+                  <p class="mb-0 text-muted">
+                    Join events quickly and enter waiting lists automatically if full.
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="feature-box p-3 rounded-3 bg-light">
+                  <h5 class="mb-1">
+                    <i class="bi bi-star me-2 text-primary"></i>
+                    Community feedback
+                  </h5>
+                  <p class="mb-0 text-muted">
+                    Read reviews and ratings from attendees after each event.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Events -->
+<section id="events" class="py-5 bg-white">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Featured Event Types</h2>
+      <p class="text-muted">
+        A preview of the kinds of events users will be able to explore on EventHub.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 border-0 shadow-sm rounded-4">
+          <div class="card-body text-center p-4">
+            <i class="bi bi-megaphone fs-1 text-primary mb-3"></i>
+            <h4 class="mb-3">Talks</h4>
+            <p class="text-muted mb-0">
+              Academic presentations, guest speakers, and discussions on relevant topics.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 border-0 shadow-sm rounded-4">
+          <div class="card-body text-center p-4">
+            <i class="bi bi-tools fs-1 text-primary mb-3"></i>
+            <h4 class="mb-3">Workshops</h4>
+            <p class="text-muted mb-0">
+              Hands-on activities where participants can learn practical skills together.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 border-0 shadow-sm rounded-4">
+          <div class="card-body text-center p-4">
+            <i class="bi bi-trophy fs-1 text-primary mb-3"></i>
+            <h4 class="mb-3">Sports</h4>
+            <p class="text-muted mb-0">
+              Recreational and competitive activities that bring the campus together.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 border-0 shadow-sm rounded-4">
+          <div class="card-body text-center p-4">
+            <i class="bi bi-book fs-1 text-primary mb-3"></i>
+            <h4 class="mb-3">Study Groups</h4>
+            <p class="text-muted mb-0">
+              Collaborative spaces for students to prepare for courses and exams.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Categories -->
+<section id="categories" class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Categories</h2>
+      <p class="text-muted">
+        Users will be able to browse events by category to find what interests them most.
+      </p>
+    </div>
+
+    <div class="row justify-content-center g-3">
+      <% ["Technology", "Arts", "Sports", "Academic", "Social"].each do |category| %>
+        <div class="col-6 col-md-4 col-lg-2">
+          <div class="category-pill text-center p-3 rounded-3 bg-white shadow-sm">
+            <%= category %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about" class="py-5 bg-white">
+  <div class="container">
+    <div class="row align-items-center gy-4">
+      <div class="col-lg-6">
+        <h2 class="fw-bold mb-3">About EventHub</h2>
+
+        <p class="text-muted">
+          EventHub is designed for the university community. It gives students, professors,
+          and staff a simple way to create events, discover new opportunities, register to attend,
+          and share feedback afterward.
+        </p>
+
+        <p class="text-muted mb-0">
+          The platform helps organizers manage capacity, waiting lists, and participant engagement,
+          while making campus life more connected and accessible for everyone.
+        </p>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="p-4 rounded-4 bg-light shadow-sm">
+          <h4 class="fw-bold mb-3">Main platform goals</h4>
+
+          <ul class="mb-0">
+            <li>Centralize university events in one platform</li>
+            <li>Make event registration easy and transparent</li>
+            <li>Support organizers with event management tools</li>
+            <li>Help participants choose events through reviews and ratings</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-4">
+      <h2 class="fw-bold">Contact</h2>
+      <p class="text-muted">Placeholder contact information for the first delivery.</p>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="card border-0 shadow-sm rounded-4">
+          <div class="card-body p-4">
+            <div class="row g-4">
+              <div class="col-md-4">
+                <h5>
+                  <i class="bi bi-envelope me-2 text-primary"></i>
+                  Email
+                </h5>
+                <p class="text-muted mb-0">eventhub@university.edu</p>
+              </div>
+
+              <div class="col-md-4">
+                <h5>
+                  <i class="bi bi-telephone me-2 text-primary"></i>
+                  Phone
+                </h5>
+                <p class="text-muted mb-0">+56 9 1234 5678</p>
+              </div>
+
+              <div class="col-md-4">
+                <h5>
+                  <i class="bi bi-geo-alt me-2 text-primary"></i>
+                  Location
+                </h5>
+                <p class="text-muted mb-0">Universidad de los Andes, Santiago, Chile</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

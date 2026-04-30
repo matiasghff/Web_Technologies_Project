@@ -1,0 +1,53 @@
+<% content_for :title, "Categories | EventHub" %>
+
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-3 mb-4">
+      <div>
+        <h1 class="fw-bold mb-1">Categories</h1>
+        <p class="text-muted mb-0">
+          Browse event categories and see how many events belong to each one.
+        </p>
+      </div>
+
+      <%= link_to root_path, class: "btn btn-outline-primary" do %>
+        <i class="bi bi-house me-1"></i>
+        Back to Home
+      <% end %>
+    </div>
+
+    <div class="row g-4">
+      <% @categories.each do |category| %>
+        <div class="col-md-6 col-xl-4">
+          <div class="card h-100 border-0 shadow-sm rounded-4">
+            <div class="card-body p-4 d-flex flex-column">
+              <div class="d-flex justify-content-between align-items-start gap-3 mb-3">
+                <h2 class="h5 fw-bold mb-0">
+                  <%= link_to category.name, category_path(category), class: "text-decoration-none text-dark" %>
+                </h2>
+
+                <span class="badge text-bg-primary">
+                  <%= pluralize(category.events.size, "event") %>
+                </span>
+              </div>
+
+              <p class="text-muted mb-4">
+                <%= category.description %>
+              </p>
+
+              <div class="mt-auto">
+                <%= link_to "View category", category_path(category), class: "btn btn-sm btn-primary" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <% if @categories.empty? %>
+      <div class="alert alert-info mt-4 mb-0">
+        No categories have been created yet.
+      </div>
+    <% end %>
+  </div>
+</section>
