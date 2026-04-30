@@ -1,3 +1,7 @@
+# Integrante:
+
+Matías García-Huidobro
+
 # Web Technologies Project — EventHub
 
 EventHub is a Ruby on Rails web application for discovering, organizing, and reviewing university community events.
